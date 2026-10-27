@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/manrope';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Manrope Variable', 'Inter Variable', ui-sans-serif, sans-serif;
+
+  /* Verde-esmeralda escuro: base da marca */
+  --color-brand-50: #effbf6;
+  --color-brand-100: #d9f4e8;
+  --color-brand-200: #b2e8d2;
+  --color-brand-300: #7dd3b4;
+  --color-brand-400: #3fb894;
+  --color-brand-500: #149473;
+  --color-brand-600: #0f7a5f;
+  --color-brand-700: #0c614c;
+  --color-brand-800: #0a4a3b;
+  --color-brand-900: #06362b;
+  --color-brand-950: #03221b;
+
+  /* Cor de destaque: ações principais e indicadores positivos */
+  --color-accent-100: #f1fdd6;
+  --color-accent-200: #e3faae;
+  --color-accent-300: #d0f57a;
+  --color-accent-400: #bdf05a;
+  --color-accent-500: #a5dc35;
+  --color-accent-600: #82b51c;
+  --color-accent-700: #5f8712;
+
+  /* Grafite e neutros */
+  --color-ink-50: #f7f8f8;
+  --color-ink-100: #eff1f2;
+  --color-ink-200: #e2e5e7;
+  --color-ink-300: #c8cdd1;
+  --color-ink-400: #9aa1a8;
+  --color-ink-500: #6b737b;
+  --color-ink-600: #4c535a;
+  --color-ink-700: #363c42;
+  --color-ink-800: #24292e;
+  --color-ink-900: #171b1f;
+  --color-ink-950: #0e1113;
+
+  --shadow-card: 0 1px 2px rgb(16 24 32 / 0.04), 0 1px 1px rgb(16 24 32 / 0.03);
+  --shadow-pop: 0 12px 32px -8px rgb(16 24 32 / 0.18), 0 2px 6px rgb(16 24 32 / 0.06);
+  --radius-xl: 0.875rem;
+
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-slide-up: slide-up 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-slide-in-right: slide-in-right 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  @keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes slide-up { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: translateY(0) } }
+  @keyframes slide-in-right { from { transform: translateX(24px); opacity: 0 } to { transform: translateX(0); opacity: 1 } }
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { @apply bg-ink-50 text-ink-900 font-sans; font-feature-settings: 'cv11', 'ss01'; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand-500; }
+  ::selection { @apply bg-accent-300 text-ink-900; }
+  input[type='number']::-webkit-inner-spin-button { opacity: 0.4; }
+}
+
+@layer components {
+  .card { @apply bg-white rounded-xl border border-ink-200/80 shadow-card; }
+  .tabular { font-variant-numeric: tabular-nums; }
+  .scrollbar-thin { scrollbar-width: thin; scrollbar-color: var(--color-ink-300) transparent; }
+  .skeleton { @apply bg-ink-100 rounded-md animate-pulse; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-page { box-shadow: none !important; border: 0 !important; margin: 0 !important; max-width: none !important; }
+}

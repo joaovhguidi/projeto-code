@@ -1,0 +1,347 @@
+[
+  {
+    "key": "barbearia", "name": "Barbearia", "icon": "Scissors", "sort_order": 10,
+    "description": "Agenda, clientes e faturamento por serviço em destaque.",
+    "config": {
+      "modules": ["agenda", "clientes", "financeiro", "servicos", "vendas", "fidelizacao"],
+      "kpis": ["appointments_today", "free_slots_today", "revenue_month", "cancellations_month", "avg_ticket_month", "inactive_customers"],
+      "quickActions": ["new_appointment", "new_customer", "register_payment", "new_expense"],
+      "alerts": ["unconfirmed_appointments", "overdue_receivables", "low_stock"],
+      "charts": ["appointments_week", "top_services", "revenue_expenses"],
+      "reports": ["top_services", "appointments_by_status", "revenue_expenses", "recurring_customers", "financial_result"],
+      "tips": ["unconfirmed_appointments", "idle_slots", "no_show_rate", "top_services_cost", "inactive_customers", "no_services", "no_finance_records"],
+      "terms": { "appointment": "Atendimento" },
+      "suggestedServices": [{ "name": "Corte masculino", "duration": 30, "price": 45 }, { "name": "Barba", "duration": 30, "price": 35 }, { "name": "Corte + barba", "duration": 60, "price": 70 }],
+      "starterTips": [
+        { "title": "Cadastre seus serviços com duração real", "reason": "A agenda calcula horários livres a partir da duração de cada serviço.", "action": "Revise o catálogo de serviços e ajuste o tempo médio de cada um.", "benefit": "Menos atrasos e encaixes mais precisos.", "module": "servicos" },
+        { "title": "Confirme os atendimentos na véspera", "reason": "Faltas deixam a cadeira vazia em horários que poderiam ser vendidos.", "action": "Marque cada atendimento como confirmado após falar com o cliente.", "benefit": "Redução de faltas e melhor aproveitamento da agenda.", "module": "agenda" },
+        { "title": "Registre todo pagamento recebido", "reason": "Sem registro não é possível saber o faturamento por serviço.", "action": "Ao concluir um atendimento, registre a venda correspondente.", "benefit": "Visão clara de quanto cada serviço gera.", "module": "vendas" }
+      ]
+    }
+  },
+  {
+    "key": "salao_beleza", "name": "Salão de beleza", "icon": "Sparkles", "sort_order": 20,
+    "description": "Agenda por profissional, clientes e controle financeiro.",
+    "config": {
+      "modules": ["agenda", "clientes", "financeiro", "servicos", "estoque", "fidelizacao"],
+      "kpis": ["appointments_today", "free_slots_today", "revenue_month", "cancellations_month", "avg_ticket_month", "low_stock_count"],
+      "quickActions": ["new_appointment", "new_customer", "register_payment", "new_product"],
+      "alerts": ["unconfirmed_appointments", "low_stock", "overdue_receivables"],
+      "charts": ["appointments_week", "top_services", "revenue_expenses"],
+      "reports": ["top_services", "appointments_by_status", "revenue_expenses", "recurring_customers", "low_stock"],
+      "tips": ["unconfirmed_appointments", "idle_slots", "no_show_rate", "top_services_cost", "low_stock", "inactive_customers", "no_services"],
+      "suggestedServices": [{ "name": "Corte feminino", "duration": 60, "price": 90 }, { "name": "Escova", "duration": 45, "price": 60 }, { "name": "Manicure", "duration": 45, "price": 35 }],
+      "starterTips": [
+        { "title": "Organize a agenda por profissional", "reason": "Conflitos de horário acontecem quando a agenda não separa os profissionais.", "action": "Cadastre a equipe e selecione o profissional em cada agendamento.", "benefit": "Nenhum horário duplicado e visão da ocupação de cada um.", "module": "equipe" },
+        { "title": "Controle os produtos usados nos serviços", "reason": "Produtos de uso profissional acabam sem aviso.", "action": "Cadastre os produtos com estoque mínimo.", "benefit": "Alertas antes de faltar material.", "module": "estoque" },
+        { "title": "Acompanhe clientes que não voltam", "reason": "Clientes recorrentes sustentam o faturamento do salão.", "action": "Use a área de Fidelização para contatar clientes sem visita há 60 dias.", "benefit": "Mais retornos sem custo de aquisição.", "module": "fidelizacao" }
+      ]
+    }
+  },
+  {
+    "key": "loja_roupas", "name": "Loja de roupas", "icon": "Shirt", "sort_order": 30,
+    "description": "Estoque, vendas e margem em evidência.",
+    "config": {
+      "modules": ["estoque", "vendas", "financeiro", "clientes", "fornecedores", "fidelizacao"],
+      "kpis": ["low_stock_count", "sales_month", "estimated_margin_month", "avg_ticket_month", "revenue_month", "receivables_open"],
+      "quickActions": ["new_product", "new_sale", "stock_entry", "new_customer"],
+      "alerts": ["low_stock", "overdue_receivables", "overdue_payables"],
+      "charts": ["sales_daily", "top_products", "revenue_expenses"],
+      "reports": ["top_products", "stale_products", "sales_by_period", "low_stock", "financial_result"],
+      "tips": ["low_stock", "stale_products", "top_products_trend", "margin_low", "overdue_receivables", "no_products", "no_sales"],
+      "starterTips": [
+        { "title": "Cadastre os produtos com custo e preço", "reason": "Sem o custo não é possível estimar a margem de cada peça.", "action": "Informe preço de compra e de venda no cadastro do produto.", "benefit": "Margem estimada em cada venda.", "module": "estoque" },
+        { "title": "Defina estoque mínimo para as peças mais vendidas", "reason": "Rupturas fazem o cliente procurar outra loja.", "action": "Ajuste o estoque mínimo dos itens de maior giro.", "benefit": "Reposição planejada antes de faltar.", "module": "estoque" },
+        { "title": "Registre todas as vendas no sistema", "reason": "O estoque e o financeiro são atualizados automaticamente a cada venda.", "action": "Use 'Registrar venda' no balcão.", "benefit": "Relatórios de produtos mais vendidos e parados.", "module": "vendas" }
+      ]
+    }
+  },
+  {
+    "key": "mercado", "name": "Mercado ou mercearia", "icon": "ShoppingBasket", "sort_order": 40,
+    "description": "Estoque, validade, vendas e fornecedores.",
+    "config": {
+      "modules": ["estoque", "vendas", "fornecedores", "financeiro", "desperdicios", "clientes"],
+      "kpis": ["out_of_stock_count", "expiring_products", "sales_month", "expenses_month", "low_stock_count", "waste_month"],
+      "quickActions": ["new_sale", "stock_entry", "new_product", "new_supplier", "new_waste"],
+      "alerts": ["low_stock", "expiring_products", "overdue_payables"],
+      "charts": ["sales_daily", "top_products", "waste_by_reason", "revenue_expenses"],
+      "reports": ["top_products", "low_stock", "waste_by_reason", "sales_by_period", "expenses_by_category", "stale_products"],
+      "tips": ["out_of_stock", "expiring_products", "low_stock", "waste_top_reason", "top_products_trend", "supplier_lead_time", "no_products"],
+      "starterTips": [
+        { "title": "Ative o controle de validade nos perecíveis", "reason": "Produtos vencidos viram prejuízo direto.", "action": "Marque 'Controlar validade' e informe a data nos produtos perecíveis.", "benefit": "Alertas para vender ou promover antes do vencimento.", "module": "estoque" },
+        { "title": "Registre as perdas", "reason": "Sem registro, a perda some no resultado e ninguém percebe.", "action": "Lance produtos vencidos ou danificados em Desperdícios.", "benefit": "Visão do impacto financeiro e dos principais motivos.", "module": "desperdicios" },
+        { "title": "Cadastre fornecedores e prazos", "reason": "O prazo de entrega define quando é preciso fazer o pedido.", "action": "Informe o prazo médio de entrega de cada fornecedor.", "benefit": "Reposição sem ruptura.", "module": "fornecedores" }
+      ]
+    }
+  },
+  {
+    "key": "restaurante", "name": "Restaurante ou lanchonete", "icon": "UtensilsCrossed", "sort_order": 50,
+    "description": "Pedidos, estoque de insumos, vendas e desperdícios.",
+    "config": {
+      "modules": ["vendas", "estoque", "desperdicios", "financeiro", "fornecedores", "entregas"],
+      "kpis": ["orders_today", "sales_today", "low_stock_count", "waste_month", "sales_month", "expenses_month"],
+      "quickActions": ["new_order", "stock_entry", "new_supplier", "new_waste", "new_delivery"],
+      "alerts": ["low_stock", "expiring_products", "late_deliveries", "overdue_payables"],
+      "charts": ["sales_daily", "top_products", "waste_by_reason"],
+      "reports": ["top_products", "waste_by_reason", "sales_by_period", "low_stock", "expenses_by_category"],
+      "tips": ["waste_top_reason", "expiring_products", "low_stock", "waste_vs_sales", "top_products_trend", "late_deliveries", "no_sales"],
+      "terms": { "sale": "Pedido", "sales": "Pedidos" },
+      "starterTips": [
+        { "title": "Cadastre os insumos com estoque mínimo", "reason": "Faltar um ingrediente tira itens do cardápio.", "action": "Cadastre os insumos principais com estoque mínimo.", "benefit": "Compras planejadas.", "module": "estoque" },
+        { "title": "Registre desperdícios diariamente", "reason": "Sobras e erros de preparo pesam no custo do prato.", "action": "Ao final do dia, registre as perdas com o motivo.", "benefit": "Descobrir as causas e reduzir o custo.", "module": "desperdicios" },
+        { "title": "Registre os pedidos no sistema", "reason": "Pedidos registrados mostram os itens mais vendidos.", "action": "Use 'Registrar pedido' a cada venda.", "benefit": "Cardápio e compras guiados por dados.", "module": "vendas" }
+      ]
+    }
+  },
+  {
+    "key": "cafeteria", "name": "Cafeteria ou padaria", "icon": "Coffee", "sort_order": 60,
+    "description": "Vendas do dia, produção, validade e perdas.",
+    "config": {
+      "modules": ["vendas", "estoque", "desperdicios", "financeiro", "fornecedores", "clientes"],
+      "kpis": ["sales_today", "orders_today", "expiring_products", "waste_month", "low_stock_count", "avg_ticket_month"],
+      "quickActions": ["new_sale", "stock_entry", "new_waste", "new_product"],
+      "alerts": ["expiring_products", "low_stock", "overdue_payables"],
+      "charts": ["sales_daily", "top_products", "waste_by_reason"],
+      "reports": ["top_products", "waste_by_reason", "sales_by_period", "low_stock"],
+      "tips": ["waste_top_reason", "expiring_products", "waste_vs_sales", "low_stock", "top_products_trend", "no_sales"],
+      "starterTips": [
+        { "title": "Ajuste a produção à saída real", "reason": "Produção acima da venda vira sobra no fim do dia.", "action": "Compare os itens mais vendidos com as sobras registradas.", "benefit": "Menos perdas.", "module": "relatorios" },
+        { "title": "Controle a validade dos insumos", "reason": "Laticínios e fermentos vencem rápido.", "action": "Ative o controle de validade nesses produtos.", "benefit": "Uso antes do vencimento.", "module": "estoque" }
+      ]
+    }
+  },
+  {
+    "key": "oficina", "name": "Oficina mecânica", "icon": "Wrench", "sort_order": 70,
+    "description": "Ordens de serviço, veículos, peças e recebimentos.",
+    "config": {
+      "modules": ["ordens_servico", "clientes", "veiculos", "estoque", "financeiro", "orcamentos", "cobrancas"],
+      "kpis": ["work_orders_open", "work_orders_done_month", "low_stock_count", "receivables_open", "revenue_month", "pending_quotes"],
+      "quickActions": ["new_work_order", "new_vehicle", "register_receipt", "new_quote", "new_customer"],
+      "alerts": ["late_work_orders", "low_stock", "overdue_receivables", "expiring_quotes"],
+      "charts": ["work_orders_status", "revenue_expenses", "top_services"],
+      "reports": ["top_services", "receivables_aging", "low_stock", "financial_result", "recurring_customers"],
+      "tips": ["late_work_orders", "pending_quotes", "overdue_receivables", "low_stock", "hours_estimate", "vehicle_history", "no_work_orders"],
+      "starterTips": [
+        { "title": "Abra uma OS para cada veículo", "reason": "A OS concentra problema, peças, mão de obra e prazo.", "action": "Use 'Abrir ordem de serviço' na chegada do veículo.", "benefit": "Histórico completo por veículo e prazos visíveis.", "module": "ordens_servico" },
+        { "title": "Registre horas estimadas e reais", "reason": "A diferença entre elas mostra se o orçamento está bem calculado.", "action": "Preencha as horas na OS ao concluir.", "benefit": "Orçamentos mais precisos.", "module": "ordens_servico" },
+        { "title": "Cadastre as peças com estoque mínimo", "reason": "Esperar peça atrasa a entrega.", "action": "Cadastre as peças mais usadas.", "benefit": "Menos OS paradas por falta de peça.", "module": "estoque" }
+      ]
+    }
+  },
+  {
+    "key": "assistencia_tecnica", "name": "Assistência técnica", "icon": "Smartphone", "sort_order": 80,
+    "description": "Ordens de serviço, orçamentos e peças.",
+    "config": {
+      "modules": ["ordens_servico", "orcamentos", "clientes", "estoque", "cobrancas", "financeiro"],
+      "kpis": ["work_orders_open", "pending_quotes", "work_orders_done_month", "receivables_open", "low_stock_count", "revenue_month"],
+      "quickActions": ["new_work_order", "new_quote", "register_receipt", "new_customer"],
+      "alerts": ["late_work_orders", "expiring_quotes", "overdue_receivables", "low_stock"],
+      "charts": ["work_orders_status", "revenue_expenses", "top_services"],
+      "reports": ["top_services", "receivables_aging", "low_stock", "financial_result"],
+      "tips": ["pending_quotes", "late_work_orders", "overdue_receivables", "hours_estimate", "low_stock", "no_work_orders"],
+      "starterTips": [
+        { "title": "Envie orçamento antes de executar", "reason": "Serviço sem aprovação gera discussão na entrega.", "action": "Crie o orçamento e converta em OS após a aprovação.", "benefit": "Menos conflitos e mais clareza com o cliente.", "module": "orcamentos" }
+      ]
+    }
+  },
+  {
+    "key": "clinica", "name": "Clínica ou consultório", "icon": "Stethoscope", "sort_order": 90,
+    "description": "Agenda, pacientes, retornos e recebimentos.",
+    "config": {
+      "modules": ["agenda", "clientes", "financeiro", "cobrancas", "documentos", "servicos"],
+      "kpis": ["appointments_today", "upcoming_appointments", "cancellations_month", "revenue_month", "receivables_open", "free_slots_today"],
+      "quickActions": ["new_appointment", "new_customer", "register_payment", "register_receipt"],
+      "alerts": ["unconfirmed_appointments", "overdue_receivables", "documents_expiring"],
+      "charts": ["appointments_week", "revenue_expenses", "top_services"],
+      "reports": ["appointments_by_status", "top_services", "receivables_aging", "financial_result"],
+      "tips": ["unconfirmed_appointments", "no_show_rate", "idle_slots", "overdue_receivables", "documents_expiring", "no_services"],
+      "terms": { "customer": "Paciente", "customers": "Pacientes" },
+      "starterTips": [
+        { "title": "Mantenha alvarás e licenças em dia", "reason": "Documentos vencidos podem gerar multas e interdição.", "action": "Cadastre os documentos com data de vencimento.", "benefit": "Alertas com antecedência.", "module": "documentos" }
+      ]
+    }
+  },
+  {
+    "key": "academia", "name": "Academia ou estúdio fitness", "icon": "Dumbbell", "sort_order": 100,
+    "description": "Alunos, agenda de aulas, mensalidades e retenção.",
+    "config": {
+      "modules": ["clientes", "agenda", "cobrancas", "financeiro", "fidelizacao", "escalas"],
+      "kpis": ["customers_total", "overdue_receivables", "receivables_open", "inactive_customers", "appointments_today", "revenue_month"],
+      "quickActions": ["new_customer", "new_appointment", "register_receipt", "new_income"],
+      "alerts": ["overdue_receivables", "unconfirmed_appointments", "preventive_due"],
+      "charts": ["revenue_expenses", "appointments_week"],
+      "reports": ["receivables_aging", "recurring_customers", "financial_result", "appointments_by_status"],
+      "tips": ["overdue_receivables", "inactive_customers", "preventive_due", "unconfirmed_appointments", "no_finance_records"],
+      "terms": { "customer": "Aluno", "customers": "Alunos" },
+      "starterTips": [
+        { "title": "Lance as mensalidades como contas a receber", "reason": "Assim os atrasos aparecem automaticamente.", "action": "Crie receitas com vencimento para cada aluno (use parcelas).", "benefit": "Cobrança organizada.", "module": "financeiro" },
+        { "title": "Programe a manutenção dos equipamentos", "reason": "Aparelho parado afeta a experiência do aluno.", "action": "Cadastre os equipamentos com intervalo de preventiva.", "benefit": "Menos quebras inesperadas.", "module": "manutencao" }
+      ]
+    }
+  },
+  {
+    "key": "pet_shop", "name": "Pet shop", "icon": "PawPrint", "sort_order": 110,
+    "description": "Clientes, animais, banho e tosa, estoque e financeiro.",
+    "config": {
+      "modules": ["clientes", "animais", "agenda", "servicos", "estoque", "financeiro"],
+      "kpis": ["appointments_today", "upcoming_appointments", "low_stock_count", "revenue_month", "pets_total", "cancellations_month"],
+      "quickActions": ["new_appointment", "new_pet", "new_customer", "new_sale", "new_product"],
+      "alerts": ["unconfirmed_appointments", "low_stock", "expiring_products", "overdue_receivables"],
+      "charts": ["appointments_week", "top_services", "top_products", "revenue_expenses"],
+      "reports": ["top_services", "top_products", "low_stock", "recurring_customers", "financial_result"],
+      "tips": ["pet_returns", "unconfirmed_appointments", "low_stock", "top_services_cost", "expiring_products", "inactive_customers", "no_services"],
+      "suggestedServices": [{ "name": "Banho (porte pequeno)", "duration": 60, "price": 50 }, { "name": "Banho e tosa", "duration": 90, "price": 90 }, { "name": "Tosa higiênica", "duration": 40, "price": 40 }],
+      "starterTips": [
+        { "title": "Cadastre os animais com porte e alergias", "reason": "Informações do animal evitam erros no atendimento.", "action": "Complete o cadastro de cada pet.", "benefit": "Atendimento mais seguro.", "module": "animais" },
+        { "title": "Planeje o próximo retorno", "reason": "Banho e tosa têm ciclo previsível.", "action": "Preencha a data de próximo retorno no cadastro do animal.", "benefit": "Lembretes de contato e agenda mais cheia.", "module": "animais" }
+      ]
+    }
+  },
+  {
+    "key": "papelaria", "name": "Papelaria", "icon": "PenTool", "sort_order": 120,
+    "description": "Estoque variado, vendas e fornecedores.",
+    "config": {
+      "modules": ["estoque", "vendas", "fornecedores", "financeiro", "clientes"],
+      "kpis": ["low_stock_count", "sales_month", "estimated_margin_month", "avg_ticket_month", "revenue_month", "out_of_stock_count"],
+      "quickActions": ["new_sale", "new_product", "stock_entry", "new_supplier"],
+      "alerts": ["low_stock", "overdue_payables"],
+      "charts": ["sales_daily", "top_products", "revenue_expenses"],
+      "reports": ["top_products", "stale_products", "low_stock", "sales_by_period"],
+      "tips": ["low_stock", "stale_products", "top_products_trend", "margin_low", "no_products"],
+      "starterTips": [
+        { "title": "Planeje a volta às aulas", "reason": "A demanda concentra-se em poucas semanas.", "action": "Analise as vendas do ano anterior e programe as compras.", "benefit": "Estoque certo no pico.", "module": "relatorios" }
+      ]
+    }
+  },
+  {
+    "key": "eletronicos", "name": "Loja de eletrônicos", "icon": "Cpu", "sort_order": 130,
+    "description": "Estoque de alto valor, vendas e margem.",
+    "config": {
+      "modules": ["estoque", "vendas", "financeiro", "clientes", "fornecedores", "ordens_servico"],
+      "kpis": ["low_stock_count", "sales_month", "estimated_margin_month", "receivables_open", "revenue_month", "avg_ticket_month"],
+      "quickActions": ["new_sale", "new_product", "stock_entry", "new_customer"],
+      "alerts": ["low_stock", "overdue_receivables", "overdue_payables"],
+      "charts": ["sales_daily", "top_products", "revenue_expenses"],
+      "reports": ["top_products", "stale_products", "financial_result", "low_stock"],
+      "tips": ["stale_products", "low_stock", "margin_low", "overdue_receivables", "top_products_trend", "no_products"],
+      "starterTips": [
+        { "title": "Acompanhe produtos parados", "reason": "Eletrônicos perdem valor rapidamente.", "action": "Revise o relatório de produtos parados todo mês.", "benefit": "Capital de giro liberado.", "module": "relatorios" }
+      ]
+    }
+  },
+  {
+    "key": "limpeza", "name": "Empresa de limpeza", "icon": "SprayCan", "sort_order": 140,
+    "description": "Agenda de serviços, equipe, escalas e orçamentos.",
+    "config": {
+      "modules": ["agenda", "orcamentos", "clientes", "equipe", "escalas", "cobrancas", "estoque"],
+      "kpis": ["upcoming_appointments", "pending_quotes", "receivables_open", "overdue_receivables", "revenue_month", "low_stock_count"],
+      "quickActions": ["new_quote", "new_appointment", "new_customer", "register_receipt"],
+      "alerts": ["unconfirmed_appointments", "expiring_quotes", "overdue_receivables", "pending_swaps", "low_stock"],
+      "charts": ["appointments_week", "revenue_expenses"],
+      "reports": ["receivables_aging", "appointments_by_status", "financial_result", "top_services"],
+      "tips": ["pending_quotes", "overdue_receivables", "unconfirmed_appointments", "low_stock", "pending_swaps", "no_services"],
+      "starterTips": [
+        { "title": "Monte a escala semanal da equipe", "reason": "Equipes em campo precisam de rotas e horários claros.", "action": "Cadastre turnos e folgas em Escalas.", "benefit": "Menos conflitos e faltas.", "module": "escalas" }
+      ]
+    }
+  },
+  {
+    "key": "autonomo", "name": "Prestador de serviços autônomo", "icon": "BriefcaseBusiness", "sort_order": 150,
+    "description": "Clientes, agenda, orçamentos e cobranças.",
+    "config": {
+      "modules": ["clientes", "agenda", "orcamentos", "cobrancas", "financeiro", "tarefas"],
+      "kpis": ["upcoming_appointments", "pending_quotes", "work_orders_done_month", "overdue_receivables", "receivables_open", "revenue_month"],
+      "quickActions": ["new_quote", "new_appointment", "register_receipt", "new_customer"],
+      "alerts": ["overdue_receivables", "expiring_quotes", "unconfirmed_appointments", "overdue_tasks"],
+      "charts": ["revenue_expenses", "appointments_week"],
+      "reports": ["receivables_aging", "financial_result", "top_services", "recurring_customers"],
+      "tips": ["pending_quotes", "overdue_receivables", "hours_estimate", "unconfirmed_appointments", "no_finance_records", "no_quotes"],
+      "starterTips": [
+        { "title": "Inclua todos os custos no orçamento", "reason": "Deslocamento, materiais e impostos costumam ficar de fora.", "action": "Use itens de material e mão de obra com custo informado.", "benefit": "Margem real em cada serviço.", "module": "orcamentos" },
+        { "title": "Defina prazos realistas", "reason": "Atrasos prejudicam a indicação de novos clientes.", "action": "Registre horas estimadas e compare com as reais.", "benefit": "Prazos mais confiáveis.", "module": "orcamentos" }
+      ]
+    }
+  },
+  {
+    "key": "entregas", "name": "Empresa de entregas", "icon": "Truck", "sort_order": 160,
+    "description": "Pedidos, entregas, entregadores e custos operacionais.",
+    "config": {
+      "modules": ["entregas", "equipe", "escalas", "financeiro", "clientes", "manutencao"],
+      "kpis": ["deliveries_pending", "deliveries_done_month", "deliveries_late", "delivery_costs_month", "revenue_month", "expenses_month"],
+      "quickActions": ["new_delivery", "new_customer", "new_expense", "new_task"],
+      "alerts": ["late_deliveries", "preventive_due", "overdue_receivables", "pending_swaps"],
+      "charts": ["deliveries_status", "revenue_expenses"],
+      "reports": ["pending_deliveries", "financial_result", "expenses_by_category"],
+      "tips": ["late_deliveries", "delivery_cost", "preventive_due", "overdue_receivables", "no_deliveries"],
+      "starterTips": [
+        { "title": "Registre custo e distância de cada entrega", "reason": "Sem custo por entrega não dá para precificar o frete.", "action": "Preencha custo e km ao lançar a entrega.", "benefit": "Frete que cobre a operação.", "module": "entregas" },
+        { "title": "Agende a manutenção dos veículos", "reason": "Veículo parado atrasa todas as entregas do dia.", "action": "Cadastre motos e carros em Manutenção com preventiva.", "benefit": "Menos imprevistos.", "module": "manutencao" }
+      ]
+    }
+  },
+  {
+    "key": "construcao", "name": "Pequena empresa de construção", "icon": "HardHat", "sort_order": 170,
+    "description": "Orçamentos, obras, materiais, equipe e prazos.",
+    "config": {
+      "modules": ["orcamentos", "tarefas", "estoque", "equipe", "cobrancas", "fornecedores", "financeiro"],
+      "kpis": ["pending_quotes", "tasks_overdue", "receivables_open", "overdue_receivables", "expenses_month", "low_stock_count"],
+      "quickActions": ["new_quote", "new_task", "stock_entry", "register_receipt", "new_supplier"],
+      "alerts": ["overdue_tasks", "overdue_receivables", "expiring_quotes", "low_stock", "overdue_payables"],
+      "charts": ["revenue_expenses"],
+      "reports": ["financial_result", "expenses_by_category", "receivables_aging", "overdue_tasks"],
+      "tips": ["pending_quotes", "overdue_tasks", "overdue_receivables", "hours_estimate", "low_stock", "no_quotes"],
+      "starterTips": [
+        { "title": "Separe material e mão de obra no orçamento", "reason": "O cliente entende melhor o preço e você controla a margem de cada parte.", "action": "Use os tipos de item 'Material' e 'Mão de obra'.", "benefit": "Orçamentos claros e lucrativos.", "module": "orcamentos" }
+      ]
+    }
+  },
+  {
+    "key": "agencia", "name": "Agência de marketing ou design", "icon": "Palette", "sort_order": 180,
+    "description": "Projetos, tarefas, propostas e recebimentos.",
+    "config": {
+      "modules": ["tarefas", "orcamentos", "clientes", "cobrancas", "financeiro", "equipe"],
+      "kpis": ["tasks_overdue", "pending_quotes", "receivables_open", "overdue_receivables", "revenue_month", "result_month"],
+      "quickActions": ["new_task", "new_quote", "new_customer", "register_receipt"],
+      "alerts": ["overdue_tasks", "overdue_receivables", "expiring_quotes"],
+      "charts": ["revenue_expenses"],
+      "reports": ["overdue_tasks", "receivables_aging", "financial_result", "recurring_customers"],
+      "tips": ["overdue_tasks", "pending_quotes", "overdue_receivables", "hours_estimate", "no_quotes"],
+      "starterTips": [
+        { "title": "Organize cada cliente como um projeto", "reason": "Tarefas agrupadas mostram o andamento de cada entrega.", "action": "Preencha o campo Projeto nas tarefas.", "benefit": "Visão clara de prazos por cliente.", "module": "tarefas" }
+      ]
+    }
+  },
+  {
+    "key": "ecommerce", "name": "Comércio eletrônico", "icon": "Globe", "sort_order": 190,
+    "description": "Pedidos, estoque, envios e atendimento.",
+    "config": {
+      "modules": ["vendas", "estoque", "entregas", "financeiro", "avaliacoes", "clientes"],
+      "kpis": ["sales_month", "orders_today", "deliveries_pending", "low_stock_count", "estimated_margin_month", "open_complaints"],
+      "quickActions": ["new_order", "new_product", "new_delivery", "stock_entry"],
+      "alerts": ["low_stock", "late_deliveries", "open_complaints", "overdue_payables"],
+      "charts": ["sales_daily", "top_products", "deliveries_status"],
+      "reports": ["top_products", "pending_deliveries", "sales_by_period", "stale_products", "low_stock"],
+      "tips": ["low_stock", "late_deliveries", "open_complaints", "stale_products", "margin_low", "no_products"],
+      "terms": { "sale": "Pedido", "sales": "Pedidos" },
+      "starterTips": [
+        { "title": "Responda reclamações rapidamente", "reason": "Avaliações negativas afetam vendas futuras.", "action": "Registre reclamações e defina responsável e prazo.", "benefit": "Melhor reputação.", "module": "avaliacoes" }
+      ]
+    }
+  },
+  {
+    "key": "outro", "name": "Outro tipo de negócio", "icon": "Store", "sort_order": 999,
+    "description": "Escolha manualmente os módulos prioritários.",
+    "config": {
+      "modules": ["clientes", "vendas", "financeiro", "tarefas"],
+      "kpis": ["revenue_month", "expenses_month", "result_month", "receivables_open", "customers_total", "tasks_overdue"],
+      "quickActions": ["new_sale", "new_customer", "new_expense", "new_task"],
+      "alerts": ["overdue_receivables", "overdue_payables", "overdue_tasks"],
+      "charts": ["revenue_expenses", "sales_daily"],
+      "reports": ["financial_result", "revenue_expenses", "sales_by_period", "expenses_by_category"],
+      "tips": ["overdue_receivables", "no_finance_records", "overdue_tasks", "low_stock", "inactive_customers"],
+      "starterTips": [
+        { "title": "Registre receitas e despesas", "reason": "Saber quanto entra e sai é a base de qualquer decisão.", "action": "Lance as movimentações no Financeiro.", "benefit": "Resultado estimado do mês sempre atualizado.", "module": "financeiro" }
+      ]
+    }
+  }
+]
