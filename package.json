@@ -14,7 +14,6 @@
     "start": "npm run start -w server",
     "db:setup": "bash scripts/setup-db.sh",
     "db:migrate": "npm run migrate -w server",
-    "seed:demo": "npm run seed:demo -w server",
     "test": "npm run test -w server",
     "typecheck": "npm run typecheck -w server && npm run typecheck -w web"
   },

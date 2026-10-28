@@ -23,6 +23,7 @@ router.get('/sales', h(async (req, res) => {
     const p = new Params();
     const tz = p.add(ctx.company.timezone);
     const where = [`s.company_id = ${p.add(ctx.companyId)}`];
+    where.push(`${tz}::text IS NOT NULL`);
     const st = str(req.query.status);
     if (st === 'concluida' || st === 'cancelada') where.push(`s.status = ${p.add(st)}`);
     const pm = str(req.query.payment_method);

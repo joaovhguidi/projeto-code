@@ -36,6 +36,7 @@ router.get('/appointments', h(async (req, res) => {
     const p = new Params();
     const where = [`a.company_id = ${p.add(ctx.companyId)}`];
     const tz = p.add(ctx.company.timezone);
+    where.push(`${tz}::text IS NOT NULL`);
     // intervalo por datas locais da empresa
     const from = isDate(req.query.from) ? req.query.from : null;
     const to = isDate(req.query.to) ? req.query.to : null;

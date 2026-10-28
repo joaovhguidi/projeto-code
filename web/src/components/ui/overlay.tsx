@@ -104,7 +104,7 @@ export function ConfirmProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Menu({ items, label = 'Ações', trigger }: { items: ({ label: string; icon?: React.ReactNode; onSelect: () => void; danger?: boolean; disabled?: boolean } | false | null | undefined)[]; label?: string; trigger?: React.ReactNode }) {
+export function Menu({ items, label = 'Ações', trigger }: { items: unknown[]; label?: string; trigger?: React.ReactNode }) {
   const list = items.filter(Boolean) as { label: string; icon?: React.ReactNode; onSelect: () => void; danger?: boolean; disabled?: boolean }[];
   if (!list.length) return null;
   return (
